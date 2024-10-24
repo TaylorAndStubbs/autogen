@@ -59,7 +59,6 @@ class RequestsMarkdownBrowser(AbstractMarkdownBrowser):
         self.page_title: Optional[str] = None
         self.viewport_current_page = 0
         self.viewport_pages: List[Tuple[int, int]] = list()
-        self.set_address(self.start_page)
         self._page_content: str = ""
 
         if search_engine is None:
@@ -84,6 +83,8 @@ class RequestsMarkdownBrowser(AbstractMarkdownBrowser):
 
         self._find_on_page_query: Union[str, None] = None
         self._find_on_page_last_result: Union[int, None] = None  # Location of the last result
+
+        self.set_address(self.start_page)
 
     @property
     def address(self) -> str:
